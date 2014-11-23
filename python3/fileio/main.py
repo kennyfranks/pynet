@@ -18,3 +18,4 @@ try:
 	print("File is now closed")
 except IOError:
 	print("File could not be closed")
+
