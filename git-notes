@@ -1,0 +1,33 @@
+################################################################
+###	https://help.github.com/articles/set-up-git/#platform-linux
+###	https://help.github.com/articles/generating-ssh-keys/
+################################################################
+
+
+#Tell git your name so commits are properly labeled
+$ git config --global user.name "YOUR NAME"
+
+#Tell git your email address 
+$ git config --global user.email "YOUR EMAIL ADDRESS"
+
+#check to see if ssh keys exist on your computer
+$ ls -la ~/.ssh
+#default public key file names are
+
+    id_dsa.pub
+    id_ecdsa.pub
+    id_ed25519.pub
+    id_rsa.pub      <-- debian, likely
+
+
+#generate a new ssh key for each computer
+$ ssh-keygen -t rsa -C "your_email@example.com"
+# Creates a new ssh key using the provided email
+
+#Then add your new key to the ssh-agent:
+$ eval "$(ssh-agent -s)"
+# Agent pid 59566
+$ ssh-add ~/.ssh/id_rsa
+
+Add your SSH key to your github account
+Open the ~/.ssh/id_rsa.pub file with a text editor. This is your SSH key. Select all and copy to your clipboard.
